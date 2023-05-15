@@ -142,7 +142,7 @@ class DremioFlightEndpointConnection:
             self.headers.append((b"routing_engine", self.engine.encode("utf-8")))
 
         # Two WLM settings can be provided upon initial authentication with the Dremio Server Flight Endpoint:
-        # routing_tag
-        # routing_queue
-        self.headers.append((b"routing_tag", b"test-routing-tag"))
-        self.headers.append((b"routing_queue", b"Low Cost User Queries"))
+        # 1. routing_tag, eg
+        #    python3 example.py --username <USER> --password <password> -query 'SELECT 1'  -sp routing_tag=mindthegap
+        # 2. routing_queue, eg
+        #    python3 example.py --username <USER> --password <password> -query 'SELECT 1'  -sp routing_queue=myqueue
